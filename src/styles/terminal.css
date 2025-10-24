@@ -1,0 +1,29 @@
+/* === Terminal global look === */
+.terminal-container {
+  background: black;
+  color: rgb(0, 255, 0);
+  font-family: monospace;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* === Lines display === */
+.terminal {
+  white-space: pre-wrap;
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+
+/* === Blinking cursor === */
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
