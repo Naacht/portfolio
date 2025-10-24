@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Terminal from "./components/Terminal";
 import Home from "./pages/Home";
+import Projets from "./pages/Projets";
+import ExperiencePro from "./pages/ExperiencePro";
+import Competence from "./pages/Competence";
+import Contact from "./pages/Contact";
 
 /**
  * App.jsx
@@ -15,21 +19,15 @@ export default function App() {
   return (
     <>
       {showTerminal ? (
-        <Terminal
-          onFinish={() => {
-            // Quand le terminal a fini : on masque et montre le site
-            setShowTerminal(false);
-          }}
-        />
+        <Terminal onFinish={() => setShowTerminal(false)} />
       ) : (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* Pages vides que l'on complètera après */}
-            <Route path="/presentation" element={<div style={{ padding: 20 }}>Presentation (à compléter)</div>} />
-            <Route path="/projets" element={<div style={{ padding: 20 }}>Projets (à compléter)</div>} />
-            <Route path="/experiencepro" element={<div style={{ padding: 20 }}>Experience Pro (à compléter)</div>} />
-            <Route path="/contact" element={<div style={{ padding: 20 }}>Contact (à compléter)</div>} />
+            <Route path="/projets" element={<Projets />} />
+            <Route path="/experiencepro" element={<ExperiencePro />} />
+            <Route path="/competence" element={<Competence />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<div style={{ padding: 20 }}>404 — page non trouvée</div>} />
           </Routes>
         </BrowserRouter>

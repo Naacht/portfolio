@@ -1,69 +1,82 @@
 import React, { useState } from "react";
 import FileLink from "../components/FileLink";
+import Tabs from "../components/Tabs";
 import EditorPane from "../components/EditorPane";
+import "../styles/home.css";
+
+import Projets from "./Projets";
+import ExperiencePro from "./ExperiencePro";
+import Competence from "./Competence";
+import Contact from "./Contact";
 
 export default function Home() {
-  const containerStyle = {
-    display: "flex",
-    minHeight: "100vh",
-    fontFamily: "monospace",
-    backgroundColor: "#1e1e1e",
-    color: "#d4d4d4",
-  };
-
-  const sidebarStyle = {
-    width: "220px",
-    borderRight: "1px solid #333",
-    padding: "20px",
-    boxSizing: "border-box",
-  };
-
-  // fichiers + contenu simulé
   const files = [
-    { name: "home.js", content: "Bienvenue sur mon portfolio !\nIci vous trouverez mes projets et expériences." },
-    { name: "presentation.js", content: "Je suis développeur web junior, passionné par React et les interfaces modernes." },
-    { name: "projets.js", content: "Projets : \n- Site e-commerce\n- Portfolio interactif\n- Application React/Node.js" },
-    { name: "experiencepro.js", content: "Expériences professionnelles : \n- Stage développeur frontend chez XYZ\n- Freelance React" },
-    { name: "competence.js", content: "Compétences :\n- React, JavaScript, HTML, CSS\n- Git, GitHub\n- UI/UX" },
-    { name: "contact.js", content: "Contactez-moi : \nemail@example.com\nLinkedIn: /in/monprofil" },
+    {
+      name: "home.js",
+      component: (
+        <div>
+          <h2>Nom Prénom</h2>
+          <p>Développeur Web Junior</p>
+          <p>📷 [Photo ici]</p>
+          <p>
+            Salut ! Je suis développeur web junior passionné par la création d’applications modernes avec React.
+            J’aime transformer des idées en projets concrets, en suivant les bonnes pratiques et en gardant un code propre et lisible.
+          </p>
+        </div>
+      ),
+    },
+    { name: "projets.js", component: <Projets /> },
+    { name: "experiencepro.js", component: <ExperiencePro /> },
+    { name: "competence.js", component: <Competence /> },
+    { name: "contact.js", component: <Contact /> },
   ];
 
   const fileIcons = {
     home: "🏠",
-    presentation: "📄",
     projets: "💻",
     experiencepro: "🧠",
     competence: "📚",
     contact: "📬",
   };
 
-  // State pour le fichier ouvert
-  const [activeFile, setActiveFile] = useState(files[0]);
+  const [openTabs, setOpenTabs] = useState([files[0]]);
+  const [activeTab, setActiveTab] = useState(files[0]);
+
+  const handleFileClick = (file) => {
+    if (!openTabs.some((f) => f.name === file.name)) setOpenTabs([...openTabs, file]);
+    setActiveTab(file);
+  };
+
+  const handleTabClick = (tab) => setActiveTab(tab);
+
+  const handleTabClose = (tab) => {
+    const newTabs = openTabs.filter((f) => f.name !== tab.name);
+    setOpenTabs(newTabs);
+    if (activeTab.name === tab.name && newTabs.length > 0) setActiveTab(newTabs[newTabs.length - 1]);
+  };
 
   return (
-    <div style={containerStyle}>
-      {/* Sidebar gauche */}
-      <div style={sidebarStyle}>
-        <h3 style={{ marginTop: 0 }}>Project Files</h3>
-        {files.map((f, i) => {
+    <div className="home-container">
+      <div className="sidebar">
+        <h3>Project Files</h3>
+        {files.map((f) => {
           let icon = "";
           Object.keys(fileIcons).forEach((key) => {
             if (f.name.toLowerCase().includes(key)) icon = fileIcons[key];
           });
-          return (
-            <FileLink
-              key={i}
-              name={f.name}
-              to="#" // on utilise le state, pas React Router ici
-              icon={icon}
-              onClick={() => setActiveFile(f)}
-            />
-          );
+          return <FileLink key={f.name} name={f.name} icon={icon} onClick={() => handleFileClick(f)} />;
         })}
       </div>
 
-      {/* Zone centrale (éditeur) */}
-      <EditorPane title={activeFile.name} content={activeFile.content} />
+      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        <Tabs
+          tabs={openTabs}
+          activeTab={activeTab}
+          onTabClick={handleTabClick}
+          onTabClose={handleTabClose}
+        />
+        <EditorPane title={activeTab.name} content={activeTab.component} />
+      </div>
     </div>
   );
 }
