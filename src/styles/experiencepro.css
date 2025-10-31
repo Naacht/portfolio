@@ -1,0 +1,238 @@
+/* src/styles/experiencepro.css */
+
+.experience-container {
+  padding: 20px;
+  max-width: 900px;
+}
+
+.experience-container h3 {
+  color: #569cd6;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.experience-intro {
+  color: #9cdcfe;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Marker & Line */
+.timeline-marker {
+  position: absolute;
+  left: -30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: #569cd6;
+  border: 3px solid #1e1e1e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #252526;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  background: #4ec9b0;
+  transform: scale(1.2);
+  box-shadow: 0 0 0 6px #252526, 0 0 20px rgba(78, 201, 176, 0.4);
+}
+
+.timeline-line {
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #569cd6, #333);
+  margin-top: 4px;
+  flex-grow: 1;
+  min-height: 60px;
+}
+
+/* Content */
+.timeline-content {
+  flex: 1;
+  background: #252526;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 24px;
+  margin-left: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 6px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #333;
+}
+
+.timeline-item:hover .timeline-content {
+  border-color: #569cd6;
+  box-shadow: 0 4px 20px rgba(86, 156, 214, 0.1);
+  transform: translateX(5px);
+}
+
+/* Header */
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 20px;
+}
+
+.experience-poste {
+  color: #4ec9b0;
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.experience-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.experience-entreprise {
+  color: #9cdcfe;
+  font-size: 0.95rem;
+}
+
+.experience-type {
+  background: #1e1e1e;
+  color: #ce9178;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  border: 1px solid #333;
+}
+
+.experience-periode {
+  color: #6a9955;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  font-weight: 500;
+  background: #1e1e1e;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #333;
+}
+
+/* Description */
+.experience-description {
+  color: #d4d4d4;
+  line-height: 1.6;
+  margin: 12px 0;
+  font-size: 0.95rem;
+}
+
+/* Missions */
+.experience-missions {
+  margin: 16px 0;
+  color: #d4d4d4;
+}
+
+.experience-missions strong {
+  color: #569cd6;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.experience-missions ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.experience-missions li {
+  position: relative;
+  padding-left: 12px;
+  margin-bottom: 6px;
+  line-height: 1.5;
+  color: #d4d4d4;
+}
+
+.experience-missions li::before {
+  content: "▸";
+  position: absolute;
+  left: -8px;
+  color: #4ec9b0;
+}
+
+/* Technologies */
+.experience-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #333;
+}
+
+.tech-tag {
+  background: #1e1e1e;
+  color: #9cdcfe;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  border: 1px solid #333;
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background: #2d2d2d;
+  border-color: #569cd6;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .experience-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .experience-periode {
+    align-self: flex-start;
+  }
+  
+  .timeline-content {
+    padding: 20px;
+  }
+  
+  .timeline {
+    padding-left: 25px;
+  }
+  
+  .timeline-marker {
+    left: -25px;
+  }
+}

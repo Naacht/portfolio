@@ -14,14 +14,17 @@ export default function Home() {
     {
       name: "home.js",
       component: (
-        <div>
-          <h2>Nom Prénom</h2>
-          <p>Développeur Web Junior</p>
-          <p>📷 [Photo ici]</p>
-          <p>
-            Salut ! Je suis développeur web junior passionné par la création d’applications modernes avec React.
-            J’aime transformer des idées en projets concrets, en suivant les bonnes pratiques et en gardant un code propre et lisible.
-          </p>
+        <div className="home-content fade-in">
+          <div className="profile-card">
+            <img src="/images/photo.jpg" alt="Moi" className="profile-photo" />
+            <h2 className="profile-name">Naacht [Ton Nom]</h2>
+            <h3 className="profile-role">💻 Développeur Web Junior</h3>
+            <p className="profile-description">
+              Passionné par la création d’interfaces modernes et performantes,
+              j’aime concevoir des projets React et Node.js tout en cherchant
+              à optimiser le code et l’expérience utilisateur.
+            </p>
+          </div>
         </div>
       ),
     },

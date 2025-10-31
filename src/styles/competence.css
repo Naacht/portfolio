@@ -1,0 +1,234 @@
+/* src/styles/competence.css */
+
+.competence-container {
+  padding: 20px;
+  max-width: 1200px;
+}
+
+.competence-container h3 {
+  color: #569cd6;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.competence-intro {
+  color: #9cdcfe;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Grid des catégories */
+.competences-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.competence-categorie {
+  background: #252526;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.competence-categorie:hover {
+  border-color: #569cd6;
+  box-shadow: 0 4px 20px rgba(86, 156, 214, 0.1);
+}
+
+.categorie-titre {
+  color: #4ec9b0;
+  margin: 0 0 20px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #333;
+}
+
+/* Skills list */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.skill-nom {
+  color: #d4d4d4;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-icon {
+  font-size: 1.1rem;
+}
+
+.skill-pourcentage {
+  color: #569cd6;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+
+/* Barre de progression */
+.skill-bar {
+  height: 8px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #333;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #569cd6, #4ec9b0);
+  border-radius: 10px;
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 0 0 10px rgba(86, 156, 214, 0.5);
+}
+
+.skill-progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.skill-progress.animated {
+  width: var(--niveau);
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Certifications */
+.certifications-section {
+  margin-top: 50px;
+}
+
+.section-titre {
+  color: #569cd6;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.certification-card {
+  background: #252526;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.certification-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #569cd6, #4ec9b0);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.certification-card:hover {
+  border-color: #569cd6;
+  transform: translateX(5px);
+  box-shadow: 0 4px 20px rgba(86, 156, 214, 0.15);
+}
+
+.certification-card:hover::before {
+  transform: scaleY(1);
+}
+
+.cert-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.cert-content {
+  flex: 1;
+}
+
+.cert-titre {
+  color: #4ec9b0;
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.cert-organisme {
+  color: #9cdcfe;
+  margin: 0 0 4px 0;
+  font-size: 0.9rem;
+}
+
+.cert-date {
+  color: #6a9955;
+  font-size: 0.85rem;
+  background: #1e1e1e;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.cert-arrow {
+  color: #569cd6;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.certification-card:hover .cert-arrow {
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .competences-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+}
