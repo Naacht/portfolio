@@ -2,23 +2,23 @@ import { useState, useEffect } from "react";
 import "../styles/terminal.css";
 
 export default function Terminal({ onFinish }) {
-  const lines = [
-    "> Initializing project...",
-    "> Installing dependencies...",
-    "> Fetching React...",
-    "> Fetching ReactDOM...",
-    "> Installing React Router...",
-    "> Creating file structure...",
-    "> Finalizing setup...",
-    "> Done ✅"
-  ];
-
   const [displayedLines, setDisplayedLines] = useState([]);
   const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
-    let index = 0;
+    // ✅ Déplacer lines ici
+    const lines = [
+      "> Initializing project...",
+      "> Installing dependencies...",
+      "> Fetching React...",
+      "> Fetching ReactDOM...",
+      "> Installing React Router...",
+      "> Creating file structure...",
+      "> Finalizing setup...",
+      "> Done ✅"
+    ];
 
+    let index = 0;
     const interval = setInterval(() => {
       setDisplayedLines((prev) => [...prev, lines[index]]);
       index++;
@@ -30,7 +30,7 @@ export default function Terminal({ onFinish }) {
     }, 500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, []); // ✅ plus besoin de dépendance lines
 
   useEffect(() => {
     const handleKeyPress = (e) => {

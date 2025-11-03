@@ -6,7 +6,7 @@ export default function ExperiencePro() {
   const experiences = [
     {
       poste: "Développeur Web Fullstack",
-      entreprise: "Tech Startup",
+      entreprise: "W&I Motors",
       periode: "Mars 2025 - Sep 2025",
       type: "Stage",
       description: "Développement complet d’une application de gestion de flotte automobile, incluant la conception du back-office, l’intégration du front-end et le déploiement sur un serveur cloud. Mise en place d’un environnement technique robuste et documenté, favorisant la maintenabilité et l’évolutivité du projet.",
