@@ -20,14 +20,14 @@ export default function Projets() {
     },
     {
       titre: "Application bancaire Java",
-      description: "Développement d’une application de bureau complète pour la gestion de comptes bancaires, incluant l’authentification sécurisée, la gestion des rôles (client / administrateur), la consultation et les virements entre comptes, ainsi qu’un historique détaillé des transactions. Une messagerie en temps réel entre client et conseiller est actuellement en cours d’intégration.",
+      description: "Application de bureau pour la gestion de comptes bancaires : authentification sécurisée, rôles client et administrateur, consultation et virements entre comptes, avec historique des transactions. Une messagerie client-conseiller est en cours d’intégration.",
       technologies: ["Java", "Spring Boot", "Spring Security", "API REST", "WebSocket"],
       githubUrl: "https://github.com/username/fullstack-app",
       demoUrl: "https://demo-app.com"
     },
     {
       titre: "Jeu - Capture Monsieur X",
-      description: "Développement d’un jeu en ligne interactif inspiré du concept de “Capture de Monsieur X”. Les joueurs se connectent via un système d’authentification, se déplacent sur une carte dynamique et collaborent pour localiser et capturer “Monsieur X”. Le projet intègre la gestion de sessions, la communication serveur-client via Servlets et JSP, ainsi qu’une base de données pour le suivi des joueurs et des parties.",
+      description: "Jeu solo inspiré de “Capture de Monsieur X”, où le joueur s’authentifie et déplace un pion parmi quatre enquêteurs pour attraper Monsieur X avant la fin des 20 tours. Développé avec Servlets, JSP et une base de données pour le suivi des parties",
       technologies: ["Java", "Servlets", "JavaServer Pages (JSP)","SQL"],
       githubUrl: "https://github.com/username/fullstack-app",
       demoUrl: "https://demo-app.com"
